@@ -1,7 +1,7 @@
 name: flutter_utils_extensions
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/YoungMayor/flutter_utils_extensions
 
 environment:
   sdk: ^3.7.0
@@ -10,6 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  get_time_ago: ^2.3.0
+  intl: ^0.20.2
+  xml: ^6.5.0
+  yaml: ^3.1.3
 
 dev_dependencies:
   flutter_test:
