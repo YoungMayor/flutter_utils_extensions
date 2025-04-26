@@ -1,16 +1,3 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
-
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?label=Licence)
 ![Platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)
 
@@ -24,7 +11,6 @@ and the Flutter guide for
 ![Issues](https://img.shields.io/github/issues/YoungMayor/flutter_utils_extensions.svg?label=Issues)
 ![Last Commit](https://img.shields.io/github/last-commit/YoungMayor/flutter_utils_extensions.svg?label=Latest%20Commit)
 ![Contributors](https://img.shields.io/github/contributors/YoungMayor/flutter_utils_extensions.svg?label=Contributors)
-
 
 
 # 🧰 Flutter Extension Utils

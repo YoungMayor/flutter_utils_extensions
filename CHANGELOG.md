@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.1] - Minor cleanups
+
+### Changed
+- Removed certain files that are not required to use package from pub
+
+---
+
 ## [0.1.0] - Rebrand to mayr_*
 
 ### Changed
