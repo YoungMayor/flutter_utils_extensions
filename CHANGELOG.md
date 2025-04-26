@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.2]
+
+### Notes
+- The `intl` package was relaxed to allow for older versions
+
+---
+
 ## [0.0.1] - Initial Release
 
 ### Added
@@ -37,8 +44,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Still evolving — contributions and feedback welcome!
 
 ---
-
-## [0.0.2]
-
-### Notes
-- The `intl` package was relaxed to allow for older versions
