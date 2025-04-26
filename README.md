@@ -11,7 +11,16 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Version](https://img.shields.io/pub/v/flutter_utils_extensions.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Build Status](https://img.shields.io/github/workflow/status/YoungMayor/flutter_utils_extensions/CI?label=build)
+![Coverage](https://img.shields.io/codecov/c/github/YoungMayor/flutter_utils_extensions.svg)
+![Issues](https://img.shields.io/github/issues/YoungMayor/flutter_utils_extensions.svg)
+![Contributors](https://img.shields.io/github/contributors/YoungMayor/flutter_utils_extensions.svg)
+![Last Commit](https://img.shields.io/github/last-commit/YoungMayor/flutter_utils_extensions.svg)
+![Platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)
+![Downloads](https://img.shields.io/pub/dt/flutter_utils_extensions.svg)
+![Pub.dev Score](https://img.shields.io/pub/score/flutter_utils_extensions.svg)
 
 # 🧰 Flutter Extension Utils
 

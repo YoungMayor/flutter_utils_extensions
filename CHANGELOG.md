@@ -1,3 +1,39 @@
-## 0.0.1
+# Changelog
 
-* TODO: Describe initial release.
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+---
+
+## [0.0.1] - Initial Release
+
+### Added
+- BuildContext extensions:
+  - Access to form, navigator, overlay, scaffold, media query, brightness, platform checks, and widget size.
+  - Device type checks (phone, tablet, desktop).
+  - Added `showSnackBar()` utility method.
+- DateTime extensions:
+  - Checkers for time of day, expiry, and comparisons.
+  - Manipulators to add/subtract dates, months, years, etc.
+  - Conversions to various string formats and age calculation.
+- Duration extension:
+  - `delay()` method for simple async delays.
+- Dynamic extensions:
+  - `nullOnDebug()`, `onlyOnDebug()`, and `maybe()` based on probability.
+- Image extension:
+  - Easily create a `CircleAvatar` widget with an image.
+- Number extensions:
+  - Comparison helpers, random number generators, number formatters, and conversions to Duration.
+- String extensions:
+  - Pattern matching, parsing to different cases (camelCase, snakeCase, etc.), and pretty printing (JSON, YAML, XML).
+  - Pattern checkers for emails, URLs, IP addresses, and more.
+- Widget extensions:
+  - Helpers for padding, sizing, positioning, clipping, visibility, and touch management via `InkWellManager`.
+
+### Notes
+- First public release.
+- Still evolving — contributions and feedback welcome!
+
+---
