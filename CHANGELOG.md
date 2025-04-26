@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.1.0] - Rebrand to mayr_*
+
+### Changed
+- Package name was rebranded from `flutter_util_extensions` to `mayr_extensions`
+
+---
+
 ## [0.0.2]
 
 ### Changed
