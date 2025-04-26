@@ -1,6 +1,6 @@
 name: flutter_utils_extensions
 description: A comprehensive set of handy Dart and Flutter extensions to make your code cleaner, shorter, and more expressive.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/YoungMayor/flutter_utils_extensions
 repository: https://github.com/YoungMayor/flutter_utils_extensions
 issue_tracker: https://github.com/YoungMayor/flutter_utils_extensions/issues
@@ -15,7 +15,7 @@ dependencies:
   flutter:
     sdk: flutter
   get_time_ago: ^2.3.0
-  intl: ^0.20.2
+  intl: '>=0.19.0 <0.21.0'
   xml: ^6.5.0
   yaml: ^3.1.3
 

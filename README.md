@@ -11,16 +11,21 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/to/develop-packages).
 -->
 
-![Version](https://img.shields.io/pub/v/flutter_utils_extensions.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Build Status](https://img.shields.io/github/workflow/status/YoungMayor/flutter_utils_extensions/CI?label=build)
-![Coverage](https://img.shields.io/codecov/c/github/YoungMayor/flutter_utils_extensions.svg)
-![Issues](https://img.shields.io/github/issues/YoungMayor/flutter_utils_extensions.svg)
-![Contributors](https://img.shields.io/github/contributors/YoungMayor/flutter_utils_extensions.svg)
-![Last Commit](https://img.shields.io/github/last-commit/YoungMayor/flutter_utils_extensions.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg?label=Licence)
 ![Platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)
-![Downloads](https://img.shields.io/pub/dt/flutter_utils_extensions.svg)
-![Pub.dev Score](https://img.shields.io/pub/score/flutter_utils_extensions.svg)
+
+![Pub Version](https://img.shields.io/pub/v/flutter_utils_extensions?style=plastic&label=Version)
+![Pub.dev Score](https://img.shields.io/pub/points/flutter_utils_extensions?label=Score&style=plastic)
+![Pub Likes](https://img.shields.io/pub/likes/flutter_utils_extensions?label=Likes&style=plastic)
+![Pub.dev Publisher](https://img.shields.io/pub/publisher/flutter_utils_extensions?label=Publisher&style=plastic)
+![Downloads](https://img.shields.io/pub/dm/flutter_utils_extensions.svg?label=Downloads&style=plastic)
+
+![Build Status](https://img.shields.io/github/actions/workflow/status/YoungMayor/flutter_utils_extensions/ci.yaml?label=Build)
+![Issues](https://img.shields.io/github/issues/YoungMayor/flutter_utils_extensions.svg?label=Issues)
+![Last Commit](https://img.shields.io/github/last-commit/YoungMayor/flutter_utils_extensions.svg?label=Latest%20Commit)
+![Contributors](https://img.shields.io/github/contributors/YoungMayor/flutter_utils_extensions.svg?label=Contributors)
+
+
 
 # 🧰 Flutter Extension Utils
 
@@ -30,6 +35,17 @@ Extensions that just make sense.
 
 Designed to save you time, reduce boilerplate, and improve readability across widgets, strings, numbers, booleans, and `BuildContext`.
 
+## 🔌 Installation & Setup
+
+The package can be installed using the command
+```bash
+flutter pub add flutter_utils_extensions
+```
+
+And can then be imported using
+```dart
+import 'package:flutter_utils_extensions/flutter_utils_extensions.dart';
+```
 
 ## 🚀 Features
 
