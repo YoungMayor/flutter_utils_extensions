@@ -9,7 +9,7 @@ extension WidgetExtensions on Widget {
   Flexible flexible({int flex = 1, FlexFit fit = FlexFit.loose}) =>
       Flexible(flex: 1, fit: fit, child: this);
 
-  InkWellManager inkWell(
+  InkWellManager inkWellManager(
     void Function()? callback, {
     Color color = Colors.transparent,
   }) => InkWellManager(this, callback, color: color);

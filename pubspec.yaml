@@ -3,6 +3,7 @@ description: A collection of useful extension methods
 version: 0.0.1
 homepage: https://github.com/YoungMayor/flutter_utils_extensions
 license: MIT
+repository: https://github.com/YoungMayor/flutter_utils_extensions
 
 environment:
   sdk: ^3.7.0

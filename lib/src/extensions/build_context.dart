@@ -3,13 +3,27 @@ part of './../extensions.dart';
 extension BuildContextExtensions on BuildContext {
   NavigatorState get navigator => Navigator.of(this);
 
-  ScaffoldMessengerState get scaffoldMessenger => ScaffoldMessenger.of(this);
-
   ScaffoldState get scaffold => Scaffold.of(this);
 
   FormState get form => Form.of(this);
 
   OverlayState get overlay => Overlay.of(this);
+}
+
+extension ContextScaffoldMessengerExtensions on BuildContext {
+  ScaffoldMessengerState get scaffoldMessenger => ScaffoldMessenger.of(this);
+
+  void showSnackBar(
+    String content, {
+    Duration? duration,
+    SnackBarBehavior behavior = SnackBarBehavior.fixed,
+  }) => scaffoldMessenger.showSnackBar(
+    SnackBar(
+      content: Text(content),
+      duration: duration ?? 4.seconds,
+      behavior: behavior,
+    ),
+  );
 }
 
 extension ContextMediaQueryExtensions on BuildContext {
@@ -27,7 +41,7 @@ extension ContextMediaQueryExtensions on BuildContext {
 
   Brightness get platformBrightness => mediaQuery.platformBrightness;
 
-  bool get isDeviceInDarkMode => platformBrightness == Brightness.dark;
+  bool get platformInDarkMode => platformBrightness == Brightness.dark;
 }
 
 extension ContextMediaQueryOrientationExtensions on BuildContext {

@@ -103,7 +103,7 @@ extension StringExtensions on String {
   }
 }
 
-extension StringPatternExtensions on String {
+extension StringPatternComparisonExtensions on String {
   bool get isAlphabetOnly => matchesRegExp(r'^[a-zA-Z]+$');
 
   bool get isEmail => matchesRegExp(
