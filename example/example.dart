@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_utils_extensions/flutter_utils_extensions.dart';
+import 'package:mayr_extensions/mayr_extensions.dart';
 
 void main() {
   runApp(const MyApp());

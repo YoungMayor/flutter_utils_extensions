@@ -14,11 +14,11 @@ and the Flutter guide for
 ![License](https://img.shields.io/badge/license-MIT-blue.svg?label=Licence)
 ![Platform](https://img.shields.io/badge/Platform-Flutter-blue.svg)
 
-![Pub Version](https://img.shields.io/pub/v/flutter_utils_extensions?style=plastic&label=Version)
-![Pub.dev Score](https://img.shields.io/pub/points/flutter_utils_extensions?label=Score&style=plastic)
-![Pub Likes](https://img.shields.io/pub/likes/flutter_utils_extensions?label=Likes&style=plastic)
-![Pub.dev Publisher](https://img.shields.io/pub/publisher/flutter_utils_extensions?label=Publisher&style=plastic)
-![Downloads](https://img.shields.io/pub/dm/flutter_utils_extensions.svg?label=Downloads&style=plastic)
+![Pub Version](https://img.shields.io/pub/v/mayr_extensions?style=plastic&label=Version)
+![Pub.dev Score](https://img.shields.io/pub/points/mayr_extensions?label=Score&style=plastic)
+![Pub Likes](https://img.shields.io/pub/likes/mayr_extensions?label=Likes&style=plastic)
+![Pub.dev Publisher](https://img.shields.io/pub/publisher/mayr_extensions?label=Publisher&style=plastic)
+![Downloads](https://img.shields.io/pub/dm/mayr_extensions.svg?label=Downloads&style=plastic)
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/YoungMayor/flutter_utils_extensions/ci.yaml?label=Build)
 ![Issues](https://img.shields.io/github/issues/YoungMayor/flutter_utils_extensions.svg?label=Issues)
@@ -39,12 +39,12 @@ Designed to save you time, reduce boilerplate, and improve readability across wi
 
 The package can be installed using the command
 ```bash
-flutter pub add flutter_utils_extensions
+flutter pub add mayr_extensions
 ```
 
 And can then be imported using
 ```dart
-import 'package:flutter_utils_extensions/flutter_utils_extensions.dart';
+import 'package:mayr_extensions/mayr_extensions.dart';
 ```
 
 ## 🚀 Features
@@ -356,7 +356,7 @@ It also auto-applies the same splash, hover, and focus colours without extra set
 To use, simply import the package into your project and you can then all of the extensions it provdes 🫶🏾
 
 ```dart
-import 'package:flutter_utils_extensions/flutter_utils_extensions.dart';
+import 'package:mayr_extensions/mayr_extensions.dart';
 
 ```
 
