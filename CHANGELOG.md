@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.2]
 
-### Notes
-- The `intl` package was relaxed to allow for older versions
+### Changed
+- Relaxed `intl` dependency constraint to `>=0.19.0 <0.21.0` for wider compatibility.
 
 ---
 
