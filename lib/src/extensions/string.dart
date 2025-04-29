@@ -1,6 +1,6 @@
 part of './../extensions.dart';
 
-extension PrettyStringExtensions on String {
+extension MayrPrettyStringExtensions on String {
   String prettyJson() =>
       const JsonEncoder.withIndent('  ').convert(jsonDecode(this));
 
@@ -10,7 +10,7 @@ extension PrettyStringExtensions on String {
       const JsonEncoder.withIndent('  ').convert(loadYaml(this));
 }
 
-extension StringCasingExtensions on String {
+extension MayrStringCasingExtensions on String {
   /// Converts to camelCase
   String get camelCase =>
       _cleanWords.first.toLowerCase() +
@@ -46,7 +46,7 @@ extension StringCasingExtensions on String {
   }
 }
 
-extension StringCompareExtensions on String {
+extension MayrStringCompareExtensions on String {
   bool get isCamelCase => camelCase == this;
 
   bool get isCapitalised => capitalised == this;
@@ -66,9 +66,20 @@ extension StringCompareExtensions on String {
   bool get isUpperCase => this == toUpperCase();
 }
 
-extension StringExtensions on String {
+extension MayrStringExtensions on String {
+  /// Copies the string to clipboard
+  void copyToClipboard() async =>
+      await Clipboard.setData(ClipboardData(text: this));
+
+  /// Checks if the string matches the given regex
   bool matchesRegExp(String regex) => regex.toRegExp().hasMatch(this);
 
+  /// Attempts to convert the string to a boolean.
+  ///
+  /// #### `'true'`, `'yes'`, `'y'` and `1` equates to `true`
+  /// #### `'false'`, `'no'`, `'n'` and `0` equates to `false`
+  /// All other strings throw an `UnsupportedError` exception
+  /// unless `fallback` is provided, in which case it would be returned
   bool toBool([bool? fallback]) {
     if (["true", "yes", "y", "1"].contains(toLowerCase())) return true;
 
@@ -80,13 +91,21 @@ extension StringExtensions on String {
   }
 
   /// Attempt to convert a [String] to a [DateTime].
-  DateTime toDateTime() => DateTime.parse(this);
+  DateTime? toDateTime() => DateTime.tryParse(this);
 
+  /// Converts a string to a [RegExp]
   RegExp toRegExp() => RegExp(this);
 
+  /// Attempt to convert a string to a Uri.
+  ///
+  /// `Null` is returned when the string cannot be parsed
+  Uri? toUri() => Uri.tryParse(this);
+
+  /// Limit the string
   String limit(int maxLength, [String overflow = "..."]) =>
       length <= maxLength ? this : substring(0, maxLength) + overflow;
 
+  /// Mask the string
   String mask({
     int start = 2,
     int end = 2,
@@ -103,7 +122,7 @@ extension StringExtensions on String {
   }
 }
 
-extension StringPatternComparisonExtensions on String {
+extension MayrStringPatternComparisonExtensions on String {
   bool get isAlphabetOnly => matchesRegExp(r'^[a-zA-Z]+$');
 
   bool get isEmail => matchesRegExp(

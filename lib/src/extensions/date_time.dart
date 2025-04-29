@@ -1,6 +1,6 @@
 part of './../extensions.dart';
 
-extension DateTimeChecksExtensions on DateTime {
+extension MayrDateTimeChecksExtensions on DateTime {
   static DateTime get _now => DateTime.now();
 
   static DateTime get _tomorrow => DateTime.now().addDays(1);
@@ -55,9 +55,9 @@ extension DateTimeChecksExtensions on DateTime {
   bool isYesterday() => isSameDay(_yesterday);
 }
 
-extension DateTimeExtensions on DateTime {}
+extension MayrDateTimeExtensions on DateTime {}
 
-extension DateTimeManipulationExtensions on DateTime {
+extension MayrDateTimeManipulationExtensions on DateTime {
   /// Add days to a [DateTime]
   DateTime addDays(int days) => add(Duration(days: days));
 
@@ -95,7 +95,7 @@ extension DateTimeManipulationExtensions on DateTime {
   DateTime subYears(int years) => DateTime(year - years, month, day);
 }
 
-extension DateTimeToStringExtensions on DateTime {
+extension MayrDateTimeToStringExtensions on DateTime {
   /// Format [DateTime] to an age
   int toAge() => DateTime.now().difference(this).inDays ~/ 365;
 

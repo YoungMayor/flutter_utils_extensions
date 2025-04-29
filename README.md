@@ -127,10 +127,11 @@ await 2.seconds.delay(() {
 - `onlyOnDebug<T>()` – Returns the value **only in debug mode**, otherwise `null`.
 - `maybe<T>({double probability = 0.5})` – Randomly returns `null` based on the given probability (between 0.0 and 1.0). Great for simulating unreliable data in tests or dev mode.
 
-```dart
-final value = 'Simulate me'.maybe(probability: 0.3);
-// Has a 30% chance of being null
-```
+  ```dart
+  final value = 'Simulate me'.maybe(probability: 0.3);
+  // Has a 30% chance of being null
+  ```
+- `orDefault(T fallback)` - Returns the fallback value if the provided value is null
 
 -------------------------------------------------------------------------------
 
@@ -196,18 +197,19 @@ await 2.seconds.delay(); // Waits for 2 seconds
 ### 🔤 String Extensions
 
 #### ✅ Utilities
+- `copyToClipboard()` - Copies the string to clipboard.
+
 - `matchesRegExp(regex)` – Checks if the string matches a given regular expression.
 - `toBool` – Converts `"true"` or `"false"` to a boolean.
-- `toDateTime()` – Parses the string into a `DateTime` object.
+- `toDateTime()` – Parses the string into a `DateTime` object. Returns null if parse fails
 - `toRegExp()` – Converts the string into a `RegExp`.
+- `toUri()` - Attempts to parse the string to a `Uri`
 - `limit(maxLength, [overflow = "…"])` – Limits string length with optional overflow characters.
-
 - `mask({start = 2, end = 2, maskChar = '*', maskLength})` – Masks the middle of the string, leaving edges visible.
-
-```dart
-'08012345678'.mask(); // 08*******78
-'08012345678'.mask(maskLength: 2); // 08**78
-```
+  ```dart
+  '08012345678'.mask(); // 08*******78
+  '08012345678'.mask(maskLength: 2); // 08**78
+  ```
 
 #### 🎀 Pretty Printing
 

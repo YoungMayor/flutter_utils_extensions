@@ -1,6 +1,6 @@
 part of './../extensions.dart';
 
-extension WidgetExtensions on Widget {
+extension MayrWidgetExtensions on Widget {
   Center center({double? heightFactor, double? widthFactor}) =>
       Center(heightFactor: heightFactor, widthFactor: widthFactor, child: this);
 
@@ -35,7 +35,7 @@ extension WidgetExtensions on Widget {
   );
 }
 
-extension WidgetClipExtensions on Widget {
+extension MayrWidgetClipExtensions on Widget {
   ClipRect clipRect() => ClipRect(child: this);
 
   ClipRRect clipRRect(BorderRadiusGeometry borderRadius) =>
@@ -45,7 +45,7 @@ extension WidgetClipExtensions on Widget {
       clipRRect(BorderRadius.circular(radius));
 }
 
-extension WidgetPaddingExtensions on Widget {
+extension MayrWidgetPaddingExtensions on Widget {
   Widget paddingAll(double padding) =>
       Padding(padding: EdgeInsets.all(padding), child: this);
 
@@ -76,14 +76,14 @@ extension WidgetPaddingExtensions on Widget {
   Widget paddingZero() => Padding(padding: EdgeInsets.zero, child: this);
 }
 
-extension WidgetPositionExtensions on Widget {
+extension MayrWidgetPositionExtensions on Widget {
   Align positionAlign(AlignmentGeometry alignment) =>
       Align(alignment: alignment, child: this);
 
   Positioned positionedFill() => Positioned.fill(child: this);
 }
 
-extension WidgetVisibilityExtensions on Widget {
+extension MayrWidgetVisibilityExtensions on Widget {
   Widget hideIf(bool condition) => showIf(!condition);
 
   Widget hideUnless(bool condition) => showIf(condition);

@@ -1,6 +1,6 @@
 part of './../extensions.dart';
 
-extension ImageWidgetExtensions on Image {
+extension MayrImageWidgetExtensions on Image {
   /// Create a circle avatar.
   CircleAvatar circleAvatar({
     Color? backgroundColor = Colors.transparent,

@@ -1,6 +1,6 @@
 part of './../extensions.dart';
 
-extension DoubleExtensions on double {
+extension MayrDoubleExtensions on double {
   double randomLess({double min = 1.0}) {
     assert(min < this, 'min ($min) must be less than $this');
 
@@ -14,7 +14,7 @@ extension DoubleExtensions on double {
   }
 }
 
-extension IntExtensions on int {
+extension MayrIntExtensions on int {
   int randomLess({int min = 1}) {
     assert(min < this, 'min ($min) must be less than $this');
 
@@ -28,7 +28,7 @@ extension IntExtensions on int {
   }
 }
 
-extension NumberExtensions on num {
+extension MayrNumberExtensions on num {
   bool isEqual(num otherNum) => this == otherNum;
 
   bool isGreaterThan(num otherNum) => this > otherNum;
@@ -40,7 +40,7 @@ extension NumberExtensions on num {
   num clampMax(num max) => this > max ? max : this;
 }
 
-extension NumberFormatExtensions on num {
+extension MayrNumberFormatExtensions on num {
   String formatAsCurrency({
     int decimalDigits = 2,
     String? locale,
@@ -61,7 +61,7 @@ extension NumberFormatExtensions on num {
       NumberFormat.decimalPattern(locale).format(this);
 }
 
-extension NumberToDurationExtensions on num {
+extension MayrNumberToDurationExtensions on num {
   Duration get days => Duration(days: toInt());
 
   Duration get hours => Duration(hours: toInt());

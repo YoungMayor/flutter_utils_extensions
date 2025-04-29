@@ -1,18 +1,24 @@
 part of './../extensions.dart';
 
-extension BuildContextExtensions on BuildContext {
+extension MayrBuildContextExtensions on BuildContext {
+  /// Get the closest [NavigatorState] up the widget tree
   NavigatorState get navigator => Navigator.of(this);
 
+  /// Get the nearest [ScaffoldState] up the widget tree
   ScaffoldState get scaffold => Scaffold.of(this);
 
+  /// Get the nearerst [FormState] up the widget tree
   FormState get form => Form.of(this);
 
+  /// Get the nearerst [OverlayState] up the widget tree
   OverlayState get overlay => Overlay.of(this);
 }
 
-extension ContextScaffoldMessengerExtensions on BuildContext {
+extension MayrContextScaffoldMessengerExtensions on BuildContext {
+  /// Get the nearest scaffold messenger
   ScaffoldMessengerState get scaffoldMessenger => ScaffoldMessenger.of(this);
 
+  /// Helper function for showing snackbar
   void showSnackBar(
     String content, {
     Duration? duration,
@@ -26,7 +32,7 @@ extension ContextScaffoldMessengerExtensions on BuildContext {
   );
 }
 
-extension ContextMediaQueryExtensions on BuildContext {
+extension MayrContextMediaQueryExtensions on BuildContext {
   MediaQueryData get mediaQuery => MediaQuery.of(this);
 
   // Size
@@ -44,7 +50,7 @@ extension ContextMediaQueryExtensions on BuildContext {
   bool get platformInDarkMode => platformBrightness == Brightness.dark;
 }
 
-extension ContextMediaQueryOrientationExtensions on BuildContext {
+extension MayrContextMediaQueryOrientationExtensions on BuildContext {
   Orientation get orientation => mediaQuery.orientation;
 
   /// check if device is on landscape mode

@@ -1,3 +1,3 @@
 part of './../extensions.dart';
 
-extension CustomObject on Object {}
+extension MayrObjectExtensions on Object {}

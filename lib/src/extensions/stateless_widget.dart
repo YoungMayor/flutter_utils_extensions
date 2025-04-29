@@ -1,3 +1,3 @@
 part of './../extensions.dart';
 
-extension CustomStatelessWidget on StatelessWidget {}
+extension MayrStatelessWidgetExtensions on StatelessWidget {}

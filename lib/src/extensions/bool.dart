@@ -1,3 +1,3 @@
 part of './../extensions.dart';
 
-extension CustomBool on bool {}
+extension MayrBoolExtensions on bool {}
