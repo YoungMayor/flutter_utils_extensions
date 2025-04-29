@@ -1,14 +1,22 @@
 part of './../extensions.dart';
 
-extension MayrDateTimeChecksExtensions on DateTime {
-  static DateTime get _now => DateTime.now();
-
-  static DateTime get _tomorrow => DateTime.now().addDays(1);
-
-  static DateTime get _yesterday => DateTime.now().subDays(1);
-
+extension MayrDateTimeTimeOfDayExtensions on DateTime {
   /// Check if the date is in the afternoon.
-  bool isAfternoon() => hour >= 12 && hour < 18;
+  bool get isAfternoon => hour >= 12 && hour < 18;
+
+  /// Check if the date is in the evening.
+  bool get isEvening => hour >= 18 && hour < 24;
+
+  /// Check if the date is in the morning.
+  bool get isMorning => hour >= 0 && hour < 12;
+
+  /// Check if the date is in the night.
+  bool get isNight => hour >= 0 && hour < 6;
+}
+
+extension MayrDateTimeAgeExtensions on DateTime {
+  /// Format [DateTime] to an age
+  int toAge() => DateTime.now().difference(this).inDays ~/ 365;
 
   /// Check if [DateTime] is between a certain [min] and [max] age
   bool isAgeBetween(int min, int max) => toAge() >= min && toAge() <= max;
@@ -21,24 +29,23 @@ extension MayrDateTimeChecksExtensions on DateTime {
 
   /// Check if [DateTime] is younger than a certain [age]
   bool isAgeYounger(int age) => toAge() < age;
+}
 
-  /// Check if the date is in the evening.
-  bool isEvening() => hour >= 18 && hour < 24;
+extension MayrDateTimeChecksExtensions on DateTime {
+  static DateTime get _now => DateTime.now();
+
+  static DateTime get _tomorrow => _now.addDays(1);
+
+  static DateTime get _yesterday => _now.subDays(1);
 
   /// Check if the date is still valid.
-  bool isExpired() => isInPast();
+  bool get isExpired => isInPast;
 
   /// Check if [DateTime] is in the future
-  bool isInFuture() => isAfter(DateTime.now());
+  bool get isInFuture => isAfter(DateTime.now());
 
   /// Check if [DateTime] is in the past
-  bool isInPast() => isBefore(DateTime.now());
-
-  /// Check if the date is in the morning.
-  bool isMorning() => hour >= 0 && hour < 12;
-
-  /// Check if the date is in the night.
-  bool isNight() => hour >= 0 && hour < 6;
+  bool get isInPast => isBefore(DateTime.now());
 
   bool isSameDay(DateTime otherDate) =>
       day == otherDate.day &&
@@ -46,16 +53,19 @@ extension MayrDateTimeChecksExtensions on DateTime {
       year == otherDate.year;
 
   /// Check if [DateTime] is today
-  bool isToday() => isSameDay(_now);
+  bool get isToday => isSameDay(_now);
 
   /// Check if [DateTime] is tomorrow
-  bool isTomorrow() => isSameDay(_tomorrow);
+  bool get isTomorrow => isSameDay(_tomorrow);
 
   /// Check if [DateTime] is yesterday
-  bool isYesterday() => isSameDay(_yesterday);
+  bool get isYesterday => isSameDay(_yesterday);
 }
 
-extension MayrDateTimeExtensions on DateTime {}
+extension MayrDateTimeExtensions on DateTime {
+  /// Get the start of the given day
+  DateTime startOfDay() => DateTime(year, month, day);
+}
 
 extension MayrDateTimeManipulationExtensions on DateTime {
   /// Add days to a [DateTime]
@@ -96,27 +106,8 @@ extension MayrDateTimeManipulationExtensions on DateTime {
 }
 
 extension MayrDateTimeToStringExtensions on DateTime {
-  /// Format [DateTime] to an age
-  int toAge() => DateTime.now().difference(this).inDays ~/ 365;
-
-  /// Format [DateTime] to toDateString - yyyy-MM-dd
-  String toDateString({String format = "yyyy-MM-dd", String? locale}) =>
-      toFormat(format, locale: locale);
-
-  /// Format [DateTime] to toDateString - yyyy-MM-dd
-  String toDateStringUK({String format = "dd/MM/yyyy", String? locale}) =>
-      toFormat(format, locale: locale);
-
-  /// Format [DateTime] to toDateString - yyyy-MM-dd
-  String toDateStringUS({String format = "MM/dd/yyyy", String? locale}) =>
-      toFormat(format, locale: locale);
-
-  /// Format [DateTime] to DateTimeString - yyyy-MM-dd HH:mm:ss
-  String toDateTimeString(String? locale) =>
-      toFormat("yyyy-MM-dd HH:mm:ss", locale: locale);
-
   /// Format [DateTime]
-  String toFormat(String format, {String? locale}) =>
+  String format(String format, {String? locale}) =>
       DateFormat(format, locale).format(this);
 
   /// Get ordinal of the day.
@@ -137,12 +128,12 @@ extension MayrDateTimeToStringExtensions on DateTime {
 
   /// Format [DateTime] to toTimeString - HH:mm or HH:mm:ss
   String toTimeString({bool withSeconds = false, String? locale}) =>
-      toFormat(withSeconds ? "HH:mm:ss" : "HH:mm", locale: locale);
+      format(withSeconds ? "HH:mm:ss" : "HH:mm", locale: locale);
 
   /// Format [DateTime] to a short date - example "Mon 1st Jan"
   String toShortDate([String? locale]) => [
-    toFormat("E", locale: locale),
+    format("E", locale: locale),
     toDayOrdinal(),
-    toFormat('MMM', locale: locale),
+    format('MMM', locale: locale),
   ].join(" ");
 }

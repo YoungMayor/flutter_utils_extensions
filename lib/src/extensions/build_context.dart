@@ -48,6 +48,7 @@ extension MayrContextMediaQueryExtensions on BuildContext {
   Brightness get platformBrightness => mediaQuery.platformBrightness;
 
   bool get platformInDarkMode => platformBrightness == Brightness.dark;
+  bool get platformInLightMode => platformBrightness == Brightness.light;
 }
 
 extension MayrContextMediaQueryOrientationExtensions on BuildContext {

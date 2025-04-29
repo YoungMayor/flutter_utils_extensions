@@ -53,7 +53,7 @@ import 'package:mayr_extensions/mayr_extensions.dart';
 - `mediaQuery` – Access `MediaQueryData` from context.
 
 - `platformBrightness` – Get the system's brightness setting (`Brightness.dark` or `Brightness.light`).
-- `platformInDarkMode` – Returns `true` if the app is currently in dark mode.
+- `platformInDarkMode` | `platformInLightMode` – Returns `true` based on the app's current brightness mode.
 - `widgetSize` – Get the rendered size of the widget associated with the context.
 - `widgetHeight` – Convenience getter for just the height of the widget.
 - `widgetWidth` – Convenience getter for just the width.
@@ -73,17 +73,15 @@ import 'package:mayr_extensions/mayr_extensions.dart';
 ### 🗓️ DateTime Extensions
 
 #### ✅ Checkers
-- `isAfternoon()` – Checks if the time is between 12:00 PM and 5:59 PM.
+- `isAfternoon` – Checks if the time is between 12:00 PM and 5:59 PM.
 
-- `isMorning()` – Checks if the time is before 12:00 PM.
-- `isEvening()` – Checks if the time is between 6:00 PM and 8:59 PM.
-- `isNight()` – Checks if the time is after 9:00 PM.
-- `isToday()` / `isTomorrow()` / `isYesterday()` – Quickly check the relation to the current day.
+- `isMorning` – Checks if the time is before 12:00 PM.
+- `isEvening` – Checks if the time is between 6:00 PM and 8:59 PM.
+- `isNight` – Checks if the time is after 9:00 PM.
+- `isToday` / `isTomorrow` / `isYesterday` – Quickly check the relation to the current day.
 - `isSameDay(DateTime other)` – Returns `true` if the date is the same calendar day as `other`.
-- `isInPast()` / `isInFuture()` – Check if the datetime is before or after now.
-- `isExpired()` – A semantic shortcut for `isInPast()`.
-- `isAgeOlder(age)` / `isAgeYounger(age)` / `isAgeEqualTo(age)` – Check against an age.
-- `isAgeBetween(min, max)` – Check if the age is within a given range.
+- `isInPast` / `isInFuture` – Check if the datetime is before or after now.
+- `isExpired` – A semantic shortcut for `isInPast()`.
 
 #### 🔧 Manipulators
 - `addDays(int)` / `addMonths(int)` / `addYears(int)` – Add to the datetime.
@@ -92,18 +90,29 @@ import 'package:mayr_extensions/mayr_extensions.dart';
 - `subDays(int)` / `subMonths(int)` / `subYears(int)` – Subtract from the datetime.
 - `subHours(int)` / `subMinutes(int)` / `subSeconds(int)` – Subtract smaller units.
 
-#### 🧠 Time to String
+#### 🔢 Age
 - `toAge()` – Convert the date to an age in years.
 
-- `toDateString({String format = "yyyy-MM-d"})` – Format as a custom date string.
-- `toDateStringUK()` – Format in British style (dd/MM/yyyy).
-- `toDateStringUS()` – Format in US style (MM/dd/yyyy).
-- `toDateTimeString()` – Full readable datetime string.
+- `isAgeOlder(age)` / `isAgeYounger(age)` / `isAgeEqualTo(age)` – Check against an age.
+- `isAgeBetween(min, max)` – Check if the age is within a given range.
+
+#### 🧠 Time to String
+
 - `toFormat(String format)` – Fully custom format using `intl`.
+  > Popular date and time formats included in the [MayrDateTimeFormats] class.
+  >
+  > Currently includes:
+  > - `MayrDateTimeFormats.ukDate` - dd/MM/yyyy
+  > - `MayrDateTimeFormats.ukDateTime` - dd/MM/yyyy HH:mm:ss
+  > - `MayrDateTimeFormats.usDate` - yyyy-MM-dd
+  > - `MayrDateTimeFormats.usDateTime` - yyyy-MM-dd HH:mm:ss
+  > - `MayrDateTimeFormats.time` - HH:mm:ss
+  > - `MayrDateTimeFormats.timeNoSecs` - HH:mm
+
+- `toDayOrdinal()` – Get the day of the month with ordinal (e.g. `1st`, `22nd`, `31st`).
 - `toTimeAgoString()` – Human-readable "time ago" format (e.g. "2 days ago").
 - `toTimeString()` – Convert to time only (e.g. `14:35` or `14:35:59`).
 - `toShortDate()` – Returns a short formatted date string (e.g. `Apr 25, 2025`).
-- `toDayOrdinal()` – Get the day of the month with ordinal (e.g. `1st`, `22nd`, `31st`).
 
 -------------------------------------------------------------------------------
 
@@ -338,6 +347,16 @@ Normally, to make a widget respond to taps, you must manually wrap it inside an 
 InkWellManager simplifies this by providing quick `.onTap()`, `.onDoubleTap()`, and `.onLongPress()` methods — making your code shorter, cleaner, and more maintainable.
 
 It also auto-applies the same splash, hover, and focus colours without extra setup.
+
+### 📜 DateTimeFormat
+
+This package also include some common date time formats. These inlude:
+- `MayrDateTimeFormats.ukDate`
+- `MayrDateTimeFormats.usDate`
+- `MayrDateTimeFormats.time`
+- `MayrDateTimeFormats.timeNoSecs`
+- `MayrDateTimeFormats.ukDateTime`
+- `MayrDateTimeFormats.usDateTime`
 
 ## Usage
 

@@ -50,10 +50,10 @@ class ExampleScreen extends StatelessWidget {
             const SizedBox(height: 20),
 
             /// DateTime Extensions
-            Text('Is Today: ${now.isToday()}'), // true
-            Text('Is Morning: ${now.isMorning()}'), // true/false
+            Text('Is Today: ${now.isToday}'), // true
+            Text('Is Morning: ${now.isMorning}'), // true/false
             Text(
-              'Add 5 days: ${now.addDays(5).toDateString()}',
+              'Add 5 days: ${now.addDays(5).format(MayrDateTimeFormats.usDate)}',
             ), // formatted future date
 
             const SizedBox(height: 20),
