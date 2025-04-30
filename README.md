@@ -81,7 +81,6 @@ import 'package:mayr_extensions/mayr_extensions.dart';
 - `isToday` / `isTomorrow` / `isYesterday` – Quickly check the relation to the current day.
 - `isSameDay(DateTime other)` – Returns `true` if the date is the same calendar day as `other`.
 - `isInPast` / `isInFuture` – Check if the datetime is before or after now.
-- `isExpired` – A semantic shortcut for `isInPast()`.
 
 #### 🔧 Manipulators
 - `addDays(int)` / `addMonths(int)` / `addYears(int)` – Add to the datetime.

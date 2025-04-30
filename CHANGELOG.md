@@ -5,15 +5,40 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 30th April, 2025
+
+### Added
+- `context.platformInLightMode`
+- `dateTime.startOfDay()`
+- `MayrDateTimeFormats`: A collection of popular datetime formats
+- Slightly more tests and dartdocs
+
+### Changed
+- `dateTime.toFormat(...)` -> `dateTime.format(...)`
+- `dateTime.isYesterday()`, `dateTime.isToday()`, and `dateTime.isTomorrow()` are now getter properties:
+  - `dateTime.isYesterday`
+  - `dateTime.isToday`
+  - `dateTime.isTomorrow`
+- `dateTime.isInPast()` and `dateTime.isInFuture()` are also now getter properties:
+  - `dateTime.isInPast`
+  - `dateTime.isInFuture`
+
+### Removed
+- `dateTime.toDateString(...)`
+- `dateTime.toDateStringUK(...)`
+- `dateTime.toDateStringUS(...)`
+- `dateTime.toDateTimeString(...)`
+- `dateTime.isExpired()`
+
 ## [0.2.0] - [29-04-2025]
 
-## Added
+### Added
 - `T?.orDefault(T fallback)` Added
 - `String.copyToClipboard()` Added
 - `String.toUri()` Added
 - More dartdocs to properties and methods
 
-## Changed
+### Changed
 - `String.toDateTime()` now uses tryParse, so null is returned if parse fails and error is not thrown
 - Added namespaces to extensions to prevent clash with user extensions
 

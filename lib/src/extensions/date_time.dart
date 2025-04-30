@@ -38,9 +38,6 @@ extension MayrDateTimeChecksExtensions on DateTime {
 
   static DateTime get _yesterday => _now.subDays(1);
 
-  /// Check if the date is still valid.
-  bool get isExpired => isInPast;
-
   /// Check if [DateTime] is in the future
   bool get isInFuture => isAfter(DateTime.now());
 
