@@ -9,9 +9,9 @@ on:
     branches:
       - main
 
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
 
 jobs:
   ci_checks:
