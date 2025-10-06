@@ -52,7 +52,7 @@ void main() {
   test("toDecimalPlaces works correctly", () {
     expect(3.14159.toDecimalPlaces(2), 3.14);
     expect(3.14159.toDecimalPlaces(4), 3.1416);
-    expect(2.5.toDecimalPlaces(0), 2.0);
+    expect(2.5.toDecimalPlaces(0), 3.0);  // 2.5 rounds to 3 (standard rounding)
     expect(2.555.toDecimalPlaces(2), 2.56);
   });
 

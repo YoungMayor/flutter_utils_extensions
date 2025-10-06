@@ -42,7 +42,7 @@ extension MayrDynamicExtensions on dynamic {
   /// // Has a 50% chance (default) of being null
   /// ```
   T? maybe<T>({double probability = 0.5}) =>
-      Random().nextDouble() < probability ? this : null;
+      Random().nextDouble() < probability ? null : this;
 }
 
 extension MayrSafeValueExtensions<T> on T? {
