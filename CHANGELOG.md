@@ -36,6 +36,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `isLongerThan(other)` - Compare durations
   - `isShorterThan(other)` - Compare durations
 
+- **Object Extensions:**
+  - `let(transform)` - Transform object inline with function
+  - `also(action)` - Execute side effects while maintaining object for chaining
+
 ### Changed
 - Enhanced all extension methods with comprehensive dartdoc documentation
 - Improved code comments and examples throughout
@@ -46,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added extensive test coverage for all new methods
 - Documentation now includes usage examples for better developer experience
 - Code structure follows KISS (Keep It Simple, Stupid) principle
+- Enhanced Dynamic/Nullable extensions with better documentation
 
 ## [0.3.1]
 

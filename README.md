@@ -157,6 +157,23 @@ print(duration.toReadableString()); // '2h 30m'
 
 -------------------------------------------------------------------------------
 
+### 🔷 Object Extensions
+
+- `let(transform)` – Executes a function with this object as its argument and returns the result. Useful for chaining operations or transforming values inline.
+- `also(action)` – Executes a function with this object and returns this object. Useful for performing side effects while maintaining the original value for further chaining.
+
+```dart
+// Examples
+final result = 'hello'.let((it) => it.toUpperCase()); // 'HELLO'
+final length = 'test'.let((it) => it.length); // 4
+
+final user = User('John')
+  .also((it) => print('Created user: ${it.name}'))
+  .also((it) => log.info('User created'));
+```
+
+-------------------------------------------------------------------------------
+
 ### 🌀 Dynamic Extensions
 
 - `nullOnDebug<T>()` – Returns `null` **only in debug mode**; retains value in release/profile. Useful for testing nullable flows.
