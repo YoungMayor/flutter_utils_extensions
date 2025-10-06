@@ -101,11 +101,31 @@ extension MayrStringExtensions on String {
   /// `Null` is returned when the string cannot be parsed
   Uri? toUri() => Uri.tryParse(this);
 
-  /// Limit the string
+  /// Limit the string to a maximum length with optional overflow indicator.
+  ///
+  /// Returns the full string if it's within [maxLength],
+  /// otherwise truncates and appends [overflow] (default: "...").
+  ///
+  /// Example:
+  /// ```dart
+  /// 'Hello World'.limit(5); // 'Hello...'
+  /// 'Hi'.limit(5); // 'Hi'
+  /// ```
   String limit(int maxLength, [String overflow = "..."]) =>
       length <= maxLength ? this : substring(0, maxLength) + overflow;
 
-  /// Mask the string
+  /// Mask the string by replacing characters with a mask character.
+  ///
+  /// The [start] and [end] parameters define how many characters
+  /// to keep visible at the beginning and end of the string.
+  /// [maskChar] is the character used for masking (default: '*').
+  /// [maskLength] can be used to set a fixed mask length.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'secret@email.com'.mask(); // 'se**************om'
+  /// 'secret@email.com'.mask(maskLength: 5); // 'se*****om'
+  /// ```
   String mask({
     int start = 2,
     int end = 2,
@@ -119,6 +139,107 @@ extension MayrStringExtensions on String {
     String masked = List.filled(maskLength, maskChar).join();
 
     return [substring(0, start), masked, substring(length - end)].join();
+  }
+
+  /// Reverses the string.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'hello'.reverse(); // 'olleh'
+  /// ```
+  String reverse() => split('').reversed.join('');
+
+  /// Checks if the string is empty or contains only whitespace.
+  bool get isBlank => trim().isEmpty;
+
+  /// Checks if the string is not empty and contains non-whitespace characters.
+  bool get isNotBlank => !isBlank;
+
+  /// Removes all whitespace from the string.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'hello world'.removeWhitespace(); // 'helloworld'
+  /// ```
+  String removeWhitespace() => replaceAll(RegExp(r'\s+'), '');
+
+  /// Counts the number of occurrences of a substring within the string.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'hello world'.countOccurrences('l'); // 3
+  /// 'hello world'.countOccurrences('o'); // 2
+  /// ```
+  int countOccurrences(String substring) {
+    if (substring.isEmpty) return 0;
+    int count = 0;
+    int index = 0;
+    while ((index = indexOf(substring, index)) != -1) {
+      count++;
+      index += substring.length;
+    }
+    return count;
+  }
+
+  /// Truncates the string to a specified length and adds an ellipsis if needed.
+  ///
+  /// This is similar to [limit] but ensures word boundaries are respected
+  /// when possible.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'The quick brown fox'.truncate(10); // 'The quick...'
+  /// ```
+  String truncate(int maxLength, {String ellipsis = '...'}) {
+    if (length <= maxLength) return this;
+
+    final truncated = substring(0, maxLength);
+    final lastSpace = truncated.lastIndexOf(' ');
+
+    // If we found a space and it's not too far from the end, break there
+    if (lastSpace > maxLength * 0.7) {
+      return '${truncated.substring(0, lastSpace)}$ellipsis';
+    }
+
+    return '$truncated$ellipsis';
+  }
+
+  /// Wraps the string with the specified prefix and suffix.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'text'.wrap('"'); // '"text"'
+  /// 'text'.wrap('[', ']'); // '[text]'
+  /// ```
+  String wrap(String prefix, [String? suffix]) {
+    suffix ??= prefix;
+    return '$prefix$this$suffix';
+  }
+
+  /// Removes the specified prefix from the string if it exists.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'Hello World'.removePrefix('Hello '); // 'World'
+  /// ```
+  String removePrefix(String prefix) {
+    if (startsWith(prefix)) {
+      return substring(prefix.length);
+    }
+    return this;
+  }
+
+  /// Removes the specified suffix from the string if it exists.
+  ///
+  /// Example:
+  /// ```dart
+  /// 'Hello World'.removeSuffix(' World'); // 'Hello'
+  /// ```
+  String removeSuffix(String suffix) {
+    if (endsWith(suffix)) {
+      return substring(0, length - suffix.length);
+    }
+    return this;
   }
 }
 
