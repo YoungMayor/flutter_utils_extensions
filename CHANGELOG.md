@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 6th October, 2025
+
+### Added
+- **String Extensions:**
+  - `reverse()` - Reverses the string
+  - `isBlank` and `isNotBlank` - Check if string is empty or contains only whitespace
+  - `removeWhitespace()` - Removes all whitespace from the string
+  - `countOccurrences(substring)` - Counts occurrences of a substring
+  - `truncate(maxLength)` - Truncates with word boundary awareness
+  - `wrap(prefix, suffix)` - Wraps string with prefix and suffix
+  - `removePrefix(prefix)` and `removeSuffix(suffix)` - Remove specific prefix or suffix
+  
+- **Number Extensions:**
+  - `toDecimalPlaces(places)` - Rounds double to specified decimal places
+  - `isBetween(min, max)` - Checks if number is within range
+  - `isPositive`, `isNegativeNumber`, `isZero` - Number sign checks
+  - `isEvenNumber` and `isOddNumber` - Parity checks for integers
+  - `times(action)` - Repeat an action n times
+  - `timesIndexed(action)` - Repeat an action n times with index
+
+### Changed
+- Enhanced all extension methods with comprehensive dartdoc documentation
+- Improved code comments and examples throughout
+- Applied DRY (Don't Repeat Yourself) principle by consolidating common patterns
+- Enhanced modularity by ensuring each extension has a single responsibility (SRP)
+
+### Improved
+- Added extensive test coverage for all new methods
+- Documentation now includes usage examples for better developer experience
+- Code structure follows KISS (Keep It Simple, Stupid) principle
+
 ## [0.3.1]
 
 - Automated deployments
