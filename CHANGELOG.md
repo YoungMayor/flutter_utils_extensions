@@ -25,6 +25,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `times(action)` - Repeat an action n times
   - `timesIndexed(action)` - Repeat an action n times with index
 
+- **Bool Extensions:**
+  - `choose(trueValue, falseValue)` - Select value based on boolean
+  - `toInt()` - Convert to integer (1 for true, 0 for false)
+  - `toYesNo()` - Convert to string with customizable true/false values
+  - `not` - Returns the negation of the boolean
+
+- **Duration Extensions:**
+  - `toReadableString()` - Human-readable duration format (e.g., '2h 30m')
+  - `isLongerThan(other)` - Compare durations
+  - `isShorterThan(other)` - Compare durations
+
 ### Changed
 - Enhanced all extension methods with comprehensive dartdoc documentation
 - Improved code comments and examples throughout
