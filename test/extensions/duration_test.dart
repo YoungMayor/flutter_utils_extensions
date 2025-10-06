@@ -7,7 +7,10 @@ void main() {
     expect(Duration(hours: 2, minutes: 30).toReadableString(), '2h 30m');
     expect(Duration(days: 1, hours: 5).toReadableString(), '1d 5h');
     expect(Duration(seconds: 45).toReadableString(), '45s');
-    expect(Duration(days: 1, hours: 2, minutes: 30, seconds: 45).toReadableString(), '1d 2h 30m 45s');
+    expect(
+      Duration(days: 1, hours: 2, minutes: 30, seconds: 45).toReadableString(),
+      '1d 2h 30m 45s',
+    );
     expect(Duration(minutes: 5, seconds: 30).toReadableString(), '5m 30s');
     expect(Duration.zero.toReadableString(), '0s');
   });
@@ -28,7 +31,7 @@ void main() {
     final stopwatch = Stopwatch()..start();
     await Duration(milliseconds: 100).delay();
     stopwatch.stop();
-    
+
     // Allow some tolerance for test execution
     expect(stopwatch.elapsedMilliseconds >= 100, true);
     expect(stopwatch.elapsedMilliseconds < 200, true);
@@ -39,7 +42,7 @@ void main() {
     await Duration(milliseconds: 50).delay(() {
       callbackExecuted = true;
     });
-    
+
     expect(callbackExecuted, true);
   });
 }

@@ -99,7 +99,7 @@ extension MayrIntExtensions on int {
   ///
   /// Example:
   /// ```dart
-  /// 3.timesIndexed((i) => print('Index: $i')); 
+  /// 3.timesIndexed((i) => print('Index: $i'));
   /// // Prints: 'Index: 0', 'Index: 1', 'Index: 2'
   /// ```
   void timesIndexed(void Function(int index) action) {

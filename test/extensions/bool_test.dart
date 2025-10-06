@@ -18,8 +18,14 @@ void main() {
   test("toYesNo works correctly", () {
     expect(true.toYesNo(), 'Yes');
     expect(false.toYesNo(), 'No');
-    expect(true.toYesNo(trueString: 'Active', falseString: 'Inactive'), 'Active');
-    expect(false.toYesNo(trueString: 'Active', falseString: 'Inactive'), 'Inactive');
+    expect(
+      true.toYesNo(trueString: 'Active', falseString: 'Inactive'),
+      'Active',
+    );
+    expect(
+      false.toYesNo(trueString: 'Active', falseString: 'Inactive'),
+      'Inactive',
+    );
   });
 
   test("not works correctly", () {

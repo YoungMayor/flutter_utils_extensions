@@ -192,15 +192,15 @@ extension MayrStringExtensions on String {
   /// ```
   String truncate(int maxLength, {String ellipsis = '...'}) {
     if (length <= maxLength) return this;
-    
+
     final truncated = substring(0, maxLength);
     final lastSpace = truncated.lastIndexOf(' ');
-    
+
     // If we found a space and it's not too far from the end, break there
     if (lastSpace > maxLength * 0.7) {
       return '${truncated.substring(0, lastSpace)}$ellipsis';
     }
-    
+
     return '$truncated$ellipsis';
   }
 
