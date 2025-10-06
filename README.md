@@ -70,6 +70,26 @@ import 'package:mayr_extensions/mayr_extensions.dart';
 
 -------------------------------------------------------------------------------
 
+### ✅ Bool Extensions
+
+- `choose(trueValue, falseValue)` – Returns `trueValue` if the boolean is true, otherwise returns `falseValue`.
+- `toInt()` – Converts the boolean to an integer (1 for true, 0 for false).
+- `toYesNo({trueString, falseString})` – Converts to a string representation with customizable values.
+- `not` – Returns the negation of the boolean (equivalent to `!this`).
+
+```dart
+// Examples
+true.choose('Active', 'Inactive'); // 'Active'
+false.choose('Active', 'Inactive'); // 'Inactive'
+true.toInt(); // 1
+false.toInt(); // 0
+true.toYesNo(); // 'Yes'
+false.toYesNo(trueString: 'On', falseString: 'Off'); // 'Off'
+true.not; // false
+```
+
+-------------------------------------------------------------------------------
+
 ### 🗓️ DateTime Extensions
 
 #### ✅ Checkers
@@ -118,12 +138,21 @@ import 'package:mayr_extensions/mayr_extensions.dart';
 ### ⏳ Duration Extensions
 
 - `delay([callback])` – Delays execution for the given duration. Optionally accepts a callback to run after the delay.
+- `toReadableString()` – Returns a human-readable string representation (e.g., '2h 30m', '1d 5h 30m').
+- `isLongerThan(other)` – Checks if this duration is longer than another duration.
+- `isShorterThan(other)` – Checks if this duration is shorter than another duration.
 
 ```dart
 // Example
 await 2.seconds.delay(() {
   print('Delayed by 2 seconds');
 });
+
+final duration = Duration(hours: 2, minutes: 30);
+print(duration.toReadableString()); // '2h 30m'
+
+5.seconds.isLongerThan(3.seconds); // true
+3.seconds.isShorterThan(5.seconds); // true
 ```
 
 -------------------------------------------------------------------------------
@@ -171,6 +200,23 @@ NetworkImage('https://example.com/pic.jpg').circleAvatar(radius: 40);
 - `isLessThan(otherNum)` – Returns `true` if the number is less.
 - `clampMin(min)` – Clamps the number to a minimum value.
 - `clampMax(max)` – Clamps the number to a maximum value.
+- `isBetween(min, max)` – Checks if the number is within a range (inclusive).
+- `isPositive` – Returns `true` if the number is greater than zero.
+- `isNegativeNumber` – Returns `true` if the number is less than zero.
+- `isZero` – Returns `true` if the number equals zero.
+
+#### 🔢 Integer Extensions
+- `isEvenNumber` – Checks if the integer is even.
+- `isOddNumber` – Checks if the integer is odd.
+- `times(action)` – Repeats an action n times.
+- `timesIndexed(action)` – Repeats an action n times with the current index.
+
+```dart
+// Example
+5.isBetween(1, 10); // true
+3.times(() => print('Hello')); // Prints 'Hello' 3 times
+3.timesIndexed((i) => print('Index: $i')); // Prints indices 0, 1, 2
+```
 
 #### 🎲 Random Generators
 - `randomLess({min = 1.0})` – For `int` or `double`, generates a random value **less than** the current one, starting from the `min`.
@@ -180,6 +226,14 @@ NetworkImage('https://example.com/pic.jpg').circleAvatar(radius: 40);
 ```dart
 10.randomLess(); // e.g. returns 3, 7, etc.
 5.5.randomMore(10.0); // e.g. returns 6.23, etc.
+```
+
+#### 🎯 Double Extensions
+- `toDecimalPlaces(places)` – Rounds the double to a specified number of decimal places.
+
+```dart
+3.14159.toDecimalPlaces(2); // 3.14
+3.14159.toDecimalPlaces(4); // 3.1416
 ```
 
 #### 💰 Number Formatting
@@ -218,6 +272,25 @@ await 2.seconds.delay(); // Waits for 2 seconds
   '08012345678'.mask(); // 08*******78
   '08012345678'.mask(maskLength: 2); // 08**78
   ```
+- `reverse()` – Reverses the string.
+- `isBlank` / `isNotBlank` – Checks if the string is empty or contains only whitespace.
+- `removeWhitespace()` – Removes all whitespace from the string.
+- `countOccurrences(substring)` – Counts how many times a substring appears.
+- `truncate(maxLength, {ellipsis})` – Truncates the string with word boundary awareness.
+- `wrap(prefix, [suffix])` – Wraps the string with a prefix and optional suffix.
+- `removePrefix(prefix)` – Removes a prefix if it exists.
+- `removeSuffix(suffix)` – Removes a suffix if it exists.
+
+```dart
+// Examples
+'hello'.reverse(); // 'olleh'
+'  '.isBlank; // true
+'hello world'.removeWhitespace(); // 'helloworld'
+'hello world'.countOccurrences('l'); // 3
+'The quick brown fox'.truncate(10); // 'The quick...'
+'text'.wrap('"'); // '"text"'
+'Hello World'.removePrefix('Hello '); // 'World'
+```
 
 #### 🎀 Pretty Printing
 
