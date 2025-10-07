@@ -76,30 +76,30 @@ extension MayrDateTimeManipulationExtensions on DateTime {
 
   /// Add months to a [DateTime]
   DateTime addMonths(int months) => DateTime(
-        year,
-        month + months,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond,
-      );
+    year,
+    month + months,
+    day,
+    hour,
+    minute,
+    second,
+    millisecond,
+    microsecond,
+  );
 
   /// Add seconds to a [DateTime]
   DateTime addSeconds(int seconds) => add(Duration(seconds: seconds));
 
   /// Add years to a [DateTime]
   DateTime addYears(int years) => DateTime(
-        year + years,
-        month,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond,
-      );
+    year + years,
+    month,
+    day,
+    hour,
+    minute,
+    second,
+    millisecond,
+    microsecond,
+  );
 
   /// Subtract days from a [DateTime]
   DateTime subDays(int days) => subtract(Duration(days: days));
@@ -112,30 +112,30 @@ extension MayrDateTimeManipulationExtensions on DateTime {
 
   /// Subtract months from a [DateTime]
   DateTime subMonths(int months) => DateTime(
-        year,
-        month - months,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond,
-      );
+    year,
+    month - months,
+    day,
+    hour,
+    minute,
+    second,
+    millisecond,
+    microsecond,
+  );
 
   /// Subtract seconds from a [DateTime]
   DateTime subSeconds(int seconds) => subtract(Duration(seconds: seconds));
 
   /// Subtract years from a [DateTime]
   DateTime subYears(int years) => DateTime(
-        year - years,
-        month,
-        day,
-        hour,
-        minute,
-        second,
-        millisecond,
-        microsecond,
-      );
+    year - years,
+    month,
+    day,
+    hour,
+    minute,
+    second,
+    millisecond,
+    microsecond,
+  );
 }
 
 extension MayrDateTimeToStringExtensions on DateTime {
