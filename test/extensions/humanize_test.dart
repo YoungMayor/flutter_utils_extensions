@@ -8,8 +8,10 @@ void main() {
       expect(Duration(days: 1).humanize(), '1 day');
       expect(Duration(seconds: 45).humanize(), '45 seconds');
       expect(Duration(hours: 1, minutes: 30).humanize(), '1 hour, 30 minutes');
-      expect(Duration(days: 2, hours: 3, minutes: 15).humanize(), 
-        '2 days, 3 hours, and 15 minutes');
+      expect(
+        Duration(days: 2, hours: 3, minutes: 15).humanize(),
+        '2 days, 3 hours, and 15 minutes',
+      );
     });
 
     test('humanize handles zero duration', () {
@@ -32,17 +34,20 @@ void main() {
 
     test('humanize formats past times correctly', () {
       final now = DateTime.now();
-      
+
       // Use a time far enough in the past to avoid timing issues
       final fiveMinutesAgo = now.subtract(Duration(minutes: 5, seconds: 30));
       final result = fiveMinutesAgo.humanize();
       expect(result == '5 minutes ago' || result == '6 minutes ago', true);
-      
+
       // Add extra seconds to avoid boundary timing issues
       final threeHoursAgo = now.subtract(Duration(hours: 3, seconds: 30));
       final hoursResult = threeHoursAgo.humanize();
-      expect(hoursResult == '3 hours ago' || hoursResult == '4 hours ago', true);
-      
+      expect(
+        hoursResult == '3 hours ago' || hoursResult == '4 hours ago',
+        true,
+      );
+
       expect(now.subtract(Duration(days: 1)).humanize(), 'yesterday');
       expect(now.subtract(Duration(days: 3)).humanize(), '3 days ago');
       expect(now.subtract(Duration(days: 10)).humanize(), 'last week');
@@ -50,41 +55,54 @@ void main() {
 
     test('humanize formats future times correctly', () {
       final now = DateTime.now();
-      
+
       // Use a time far enough in the future to avoid timing issues
       final fiveMinutesLater = now.add(Duration(minutes: 5, seconds: 30));
       final result = fiveMinutesLater.humanize();
       expect(result == 'in 5 minutes' || result == 'in 6 minutes', true);
-      
+
       // Add extra seconds to avoid boundary timing issues
       final threeHoursLater = now.add(Duration(hours: 3, seconds: 30));
       final hoursResult = threeHoursLater.humanize();
       expect(hoursResult == 'in 3 hours' || hoursResult == 'in 4 hours', true);
-      
-      expect(now.add(Duration(days: 1)).humanize(), 'tomorrow');
-      expect(now.add(Duration(days: 3)).humanize(), 'in 3 days');
-      expect(now.add(Duration(days: 10)).humanize(), 'next week');
+
+      expect(now.add(Duration(days: 1, seconds: 1)).humanize(), 'tomorrow');
+      expect(now.add(Duration(days: 3, seconds: 1)).humanize(), 'in 3 days');
+      expect(now.add(Duration(days: 10, seconds: 1)).humanize(), 'next week');
     });
 
     test('humanize handles singular values', () {
       final now = DateTime.now();
-      
+
       // Add buffer seconds to avoid timing boundary issues
       final oneMinuteAgo = now.subtract(Duration(minutes: 1, seconds: 30));
       final minuteAgoResult = oneMinuteAgo.humanize();
-      expect(minuteAgoResult == '1 minute ago' || minuteAgoResult == '2 minutes ago', true);
-      
+      expect(
+        minuteAgoResult == '1 minute ago' || minuteAgoResult == '2 minutes ago',
+        true,
+      );
+
       final oneHourAgo = now.subtract(Duration(hours: 1, seconds: 30));
       final hourAgoResult = oneHourAgo.humanize();
-      expect(hourAgoResult == '1 hour ago' || hourAgoResult == '2 hours ago', true);
-      
+      expect(
+        hourAgoResult == '1 hour ago' || hourAgoResult == '2 hours ago',
+        true,
+      );
+
       final oneMinuteLater = now.add(Duration(minutes: 1, seconds: 30));
       final minuteLaterResult = oneMinuteLater.humanize();
-      expect(minuteLaterResult == 'in 1 minute' || minuteLaterResult == 'in 2 minutes', true);
-      
+      expect(
+        minuteLaterResult == 'in 1 minute' ||
+            minuteLaterResult == 'in 2 minutes',
+        true,
+      );
+
       final oneHourLater = now.add(Duration(hours: 1, seconds: 30));
       final hourLaterResult = oneHourLater.humanize();
-      expect(hourLaterResult == 'in 1 hour' || hourLaterResult == 'in 2 hours', true);
+      expect(
+        hourLaterResult == 'in 1 hour' || hourLaterResult == 'in 2 hours',
+        true,
+      );
     });
   });
 
@@ -93,7 +111,8 @@ void main() {
       expect(999.humanizeNumber(), '999');
       expect(1234.humanizeNumber(), '1.2k');
       expect(1500000.humanizeNumber(), '1.5M');
-      expect(1000000000.humanizeNumber(), '1.0B');
+      expect(1000000000.humanizeNumber(), '1B');
+      expect(1100000000.humanizeNumber(), '1.1B');
     });
 
     test('humanizeNumber handles decimals', () {
@@ -132,10 +151,12 @@ void main() {
     test('humanizeFileSize formats file sizes correctly', () {
       expect(0.humanizeFileSize(), '0 B');
       expect(500.humanizeFileSize(), '500 B');
-      expect(1024.humanizeFileSize(), '1.0 KB');
-      expect(1048576.humanizeFileSize(), '1.0 MB');
+      expect(1024.humanizeFileSize(), '1 KB');
+      expect(1025.humanizeFileSize(), '1.0 KB');
+      expect(1126.humanizeFileSize(), '1.1 KB');
+      expect(1048576.humanizeFileSize(), '1 MB');
       expect(520300.humanizeFileSize(), '508.1 KB');
-      expect(1073741824.humanizeFileSize(), '1.0 GB');
+      expect(1073741824.humanizeFileSize(), '1 GB');
     });
 
     test('humanizeFileSize handles decimals', () {

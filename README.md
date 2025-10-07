@@ -422,9 +422,7 @@ await 2.seconds.delay(); // Waits for 2 seconds
 
 - `sumBy(num Function(T))` → Sum elements by selector
 - `averageBy(num Function(T))` → Average by selector
-- `minBy(keySelector)` → Element with minimum key
 - `min()` → Minimum value
-- `maxBy(keySelector)` → Element with maximum key
 - `max()` → Maximum value
 - `countWhere(predicate)` → Count matching elements
 

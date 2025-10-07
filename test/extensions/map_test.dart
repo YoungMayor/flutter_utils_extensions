@@ -49,10 +49,10 @@ void main() {
     });
 
     test('combine merges with custom combiner', () {
-      final result = {'a': 1, 'b': 2}.combine(
-        {'b': 3, 'c': 4},
-        (k, v1, v2) => v1 + v2,
-      );
+      final result = {
+        'a': 1,
+        'b': 2,
+      }.combine({'b': 3, 'c': 4}, (k, v1, v2) => v1 + v2);
       expect(result, {'a': 1, 'b': 5, 'c': 4});
     });
 
@@ -62,7 +62,8 @@ void main() {
     });
 
     test('valuesWhere returns values matching predicate', () {
-      final result = {'a': 1, 'b': 2, 'c': 3}.valuesWhere((k) => k != 'b').toList();
+      final result =
+          {'a': 1, 'b': 2, 'c': 3}.valuesWhere((k) => k != 'b').toList();
       expect(result, [1, 3]);
     });
 
@@ -72,8 +73,13 @@ void main() {
     });
 
     test('toQueryString handles special characters', () {
-      final result = {'key': 'value with spaces', 'special': 'a&b=c'}.toQueryString();
-      expect(result.contains('value+with+spaces') || result.contains('value%20with%20spaces'), true);
+      final result =
+          {'key': 'value with spaces', 'special': 'a&b=c'}.toQueryString();
+      expect(
+        result.contains('value+with+spaces') ||
+            result.contains('value%20with%20spaces'),
+        true,
+      );
     });
   });
 }

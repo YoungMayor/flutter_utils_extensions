@@ -53,9 +53,7 @@ extension MayrMapExtensions<K, V> on Map<K, V> {
   /// // {'a': 1, 'c': 3}
   /// ```
   Map<K, V> filterKeys(bool Function(K key) predicate) {
-    return Map.fromEntries(
-      entries.where((e) => predicate(e.key)),
-    );
+    return Map.fromEntries(entries.where((e) => predicate(e.key)));
   }
 
   /// Creates a new map with only the entries whose values satisfy [predicate].
@@ -66,9 +64,7 @@ extension MayrMapExtensions<K, V> on Map<K, V> {
   /// // {'b': 2, 'c': 3}
   /// ```
   Map<K, V> filterValues(bool Function(V value) predicate) {
-    return Map.fromEntries(
-      entries.where((e) => predicate(e.value)),
-    );
+    return Map.fromEntries(entries.where((e) => predicate(e.value)));
   }
 
   /// Creates a new map with keys and values swapped.
@@ -79,9 +75,7 @@ extension MayrMapExtensions<K, V> on Map<K, V> {
   /// // {1: 'a', 2: 'b'}
   /// ```
   Map<V, K> invert() {
-    return Map.fromEntries(
-      entries.map((e) => MapEntry(e.value, e.key)),
-    );
+    return Map.fromEntries(entries.map((e) => MapEntry(e.value, e.key)));
   }
 
   /// Merges this map with [otherMap], with entries from [otherMap] taking precedence.
@@ -163,7 +157,10 @@ extension MayrMapExtensions<K, V> on Map<K, V> {
   /// ```
   String toQueryString() {
     return entries
-        .map((e) => '${Uri.encodeComponent(e.key.toString())}=${Uri.encodeComponent(e.value.toString())}')
+        .map(
+          (e) =>
+              '${Uri.encodeComponent(e.key.toString())}=${Uri.encodeComponent(e.value.toString())}',
+        )
         .join('&');
   }
 }

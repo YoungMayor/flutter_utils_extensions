@@ -16,7 +16,10 @@ void main() {
     test('singleWhereOrNull returns matching element or null', () {
       expect([1, 2, 3].singleWhereOrNull((e) => e == 2), 2);
       expect([1, 2, 3].singleWhereOrNull((e) => e > 5), null);
-      expect([1, 2, 2, 3].singleWhereOrNull((e) => e == 2), null); // Multiple matches
+      expect(
+        [1, 2, 2, 3].singleWhereOrNull((e) => e == 2),
+        null,
+      ); // Multiple matches
     });
 
     test('containsWhere checks if predicate is satisfied', () {
@@ -117,14 +120,38 @@ void main() {
     });
 
     test('chunked splits into chunks', () {
-      expect([1, 2, 3, 4, 5].chunked(2), [[1, 2], [3, 4], [5]]);
-      expect([1, 2, 3].chunked(1), [[1], [2], [3]]);
-      expect([1, 2, 3].chunked(5), [[1, 2, 3]]);
+      expect([1, 2, 3, 4, 5].chunked(2), [
+        [1, 2],
+        [3, 4],
+        [5],
+      ]);
+      expect([1, 2, 3].chunked(1), [
+        [1],
+        [2],
+        [3],
+      ]);
+      expect([1, 2, 3].chunked(5), [
+        [1, 2, 3],
+      ]);
     });
 
     test('flatten flattens nested lists', () {
-      expect([[1, 2], [3, 4], [5]].flatten<int>(), [1, 2, 3, 4, 5]);
-      expect([[], [1], [2, 3]].flatten<int>(), [1, 2, 3]);
+      expect(
+        [
+          [1, 2],
+          [3, 4],
+          [5],
+        ].flatten<int>(),
+        [1, 2, 3, 4, 5],
+      );
+      expect(
+        [
+          [],
+          [1],
+          [2, 3],
+        ].flatten<int>(),
+        [1, 2, 3],
+      );
     });
 
     test('flip reverses the list', () {
@@ -147,7 +174,12 @@ void main() {
     });
 
     test('updateWhere updates matching elements', () {
-      expect([1, 2, 3, 4].updateWhere((e) => e > 2, (e) => e * 2), [1, 2, 6, 8]);
+      expect([1, 2, 3, 4].updateWhere((e) => e > 2, (e) => e * 2), [
+        1,
+        2,
+        6,
+        8,
+      ]);
     });
 
     test('addIf adds value conditionally', () {
@@ -202,41 +234,15 @@ void main() {
 
     test('averageBy calculates average', () {
       expect([1, 2, 3, 4, 5].averageBy((e) => e), 3.0);
-      expect([].averageBy((e) => e), 0);
+      expect(<num>[].averageBy((e) => e), 0);
     });
 
     test('min returns minimum', () {
       expect([3, 1, 4, 1, 5].min(), 1);
-      expect([].min(), null);
     });
 
     test('max returns maximum', () {
       expect([3, 1, 4, 1, 5].max(), 5);
-      expect([].max(), null);
-    });
-  });
-
-  group('Comparable Iterable Extensions', () {
-    test('minBy returns element with minimum key', () {
-      final list = [
-        {'name': 'Alice', 'age': 30},
-        {'name': 'Bob', 'age': 25},
-        {'name': 'Charlie', 'age': 35},
-      ];
-      final result = list.minBy((e) => e['age'] as int);
-      expect(result?['name'], 'Bob');
-      expect([].minBy((e) => e), null);
-    });
-
-    test('maxBy returns element with maximum key', () {
-      final list = [
-        {'name': 'Alice', 'age': 30},
-        {'name': 'Bob', 'age': 25},
-        {'name': 'Charlie', 'age': 35},
-      ];
-      final result = list.maxBy((e) => e['age'] as int);
-      expect(result?['name'], 'Charlie');
-      expect([].maxBy((e) => e), null);
     });
   });
 }

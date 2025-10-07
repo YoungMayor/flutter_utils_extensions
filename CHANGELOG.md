@@ -33,8 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Aggregations (for numbers):**
   - `sumBy(num Function(T))` - Sum elements by selector
   - `averageBy(num Function(T))` - Average by selector
-  - `minBy(keySelector)` / `min()` - Minimum value/element
-  - `maxBy(keySelector)` / `max()` - Maximum value/element
   - `countWhere(predicate)` - Count matching elements
 
 - **Mutation Helpers (returns new copy):**
@@ -127,7 +125,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `truncate(maxLength)` - Truncates with word boundary awareness
   - `wrap(prefix, suffix)` - Wraps string with prefix and suffix
   - `removePrefix(prefix)` and `removeSuffix(suffix)` - Remove specific prefix or suffix
-  
+
 - **Number Extensions:**
   - `toDecimalPlaces(places)` - Rounds double to specified decimal places
   - `isBetween(min, max)` - Checks if number is within range

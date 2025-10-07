@@ -16,7 +16,7 @@ extension MayrDurationHumanizeExtensions on Duration {
     final seconds = inSeconds.remainder(60);
 
     final parts = <String>[];
-    
+
     if (days > 0) {
       parts.add('$days ${days == 1 ? 'day' : 'days'}');
     }
@@ -33,8 +33,8 @@ extension MayrDurationHumanizeExtensions on Duration {
     if (parts.isEmpty) return '0 seconds';
     if (parts.length == 1) return parts[0];
     if (parts.length == 2) return '${parts[0]}, ${parts[1]}';
-    
-    return parts.sublist(0, parts.length - 1).join(', ') + ', and ${parts.last}';
+
+    return '${parts.sublist(0, parts.length - 1).join(', ')}, and ${parts.last}';
   }
 }
 
@@ -154,7 +154,7 @@ extension MayrNumHumanizeExtensions on num {
     if (n % 100 >= 11 && n % 100 <= 13) {
       return '${n}th';
     }
-    
+
     switch (n % 10) {
       case 1:
         return '${n}st';
@@ -207,7 +207,7 @@ extension MayrNumHumanizeExtensions on num {
   String humanizeFileSize({int decimals = 1}) {
     if (this < 0) return 'Invalid size';
     if (this == 0) return '0 B';
-    
+
     const suffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
     var index = 0;
     var size = toDouble();

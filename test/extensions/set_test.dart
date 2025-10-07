@@ -31,7 +31,10 @@ void main() {
     });
 
     test('unionAll combines multiple sets', () {
-      final result = {1, 2}.unionAll([{2, 3}, {3, 4}]);
+      final result = {1, 2}.unionAll([
+        {2, 3},
+        {3, 4},
+      ]);
       expect(result, {1, 2, 3, 4});
     });
 

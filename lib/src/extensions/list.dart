@@ -129,8 +129,7 @@ extension MayrIterableExtensions<T> on Iterable<T> {
   /// ```dart
   /// [1, 2, 3, 4, 5].countWhere((e) => e > 3); // 2
   /// ```
-  int countWhere(bool Function(T) predicate) =>
-      where(predicate).length;
+  int countWhere(bool Function(T) predicate) => where(predicate).length;
 
   /// Checks if the iterable is `null` or empty.
   ///
@@ -149,10 +148,7 @@ extension MayrIterableExtensions<T> on Iterable<T> {
   /// [1, 2, 3].joinToString(separator: ', ', transform: (e) => 'Item $e');
   /// // 'Item 1, Item 2, Item 3'
   /// ```
-  String joinToString({
-    String separator = '',
-    String Function(T)? transform,
-  }) {
+  String joinToString({String separator = '', String Function(T)? transform}) {
     if (transform != null) {
       return map(transform).join(separator);
     }
@@ -386,7 +382,7 @@ extension MayrListExtensions<T> on List<T> {
   List<T> unique() => toSet().toList();
 }
 
-extension MayrNumIterableExtensions on Iterable<num> {
+extension MayrNumIterableExtensions<T extends num> on Iterable<T> {
   /// Sums elements by applying a selector function.
   ///
   /// Example:
@@ -414,7 +410,7 @@ extension MayrNumIterableExtensions on Iterable<num> {
   /// [3, 1, 4, 1, 5].min(); // 1
   /// [].min(); // null
   /// ```
-  num? min() => isEmpty ? null : reduce((a, b) => a < b ? a : b);
+  T? min() => isEmpty ? null : reduce((a, b) => a < b ? a : b);
 
   /// Returns the maximum value in the iterable.
   ///
@@ -423,31 +419,5 @@ extension MayrNumIterableExtensions on Iterable<num> {
   /// [3, 1, 4, 1, 5].max(); // 5
   /// [].max(); // null
   /// ```
-  num? max() => isEmpty ? null : reduce((a, b) => a > b ? a : b);
-}
-
-extension MayrComparableIterableExtensions<T extends Comparable> on Iterable<T> {
-  /// Returns the minimum element by comparing with a key selector.
-  ///
-  /// Example:
-  /// ```dart
-  /// [Person('Alice', 30), Person('Bob', 25)].minBy((p) => p.age);
-  /// // Person('Bob', 25)
-  /// ```
-  T? minBy<K extends Comparable<K>>(K Function(T) keySelector) {
-    if (isEmpty) return null;
-    return reduce((a, b) => keySelector(a).compareTo(keySelector(b)) < 0 ? a : b);
-  }
-
-  /// Returns the maximum element by comparing with a key selector.
-  ///
-  /// Example:
-  /// ```dart
-  /// [Person('Alice', 30), Person('Bob', 25)].maxBy((p) => p.age);
-  /// // Person('Alice', 30)
-  /// ```
-  T? maxBy<K extends Comparable<K>>(K Function(T) keySelector) {
-    if (isEmpty) return null;
-    return reduce((a, b) => keySelector(a).compareTo(keySelector(b)) > 0 ? a : b);
-  }
+  T? max() => isEmpty ? null : reduce((a, b) => a > b ? a : b);
 }
