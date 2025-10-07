@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Improved
+- Added comprehensive test coverage for DateTime extensions
+  - Tests for all manipulation methods (addDays, addMonths, addYears, subDays, etc.)
+  - Tests for check methods (isToday, isTomorrow, isYesterday, isInFuture, isInPast)
+  - Tests for formatting methods (format, toTimeString, toShortDate, toDayOrdinal)
+  - Tests for time of day checks (isMorning, isAfternoon, isEvening, isNight)
+  - Tests for age calculations (toAge, isAgeOlder, isAgeYounger, isAgeBetween)
+
 ## [0.4.0] - 6th October, 2025
 
 ### Added

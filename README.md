@@ -96,11 +96,14 @@ true.not; // false
 - `isAfternoon` – Checks if the time is between 12:00 PM and 5:59 PM.
 
 - `isMorning` – Checks if the time is before 12:00 PM.
-- `isEvening` – Checks if the time is between 6:00 PM and 8:59 PM.
-- `isNight` – Checks if the time is after 9:00 PM.
+- `isEvening` – Checks if the time is between 6:00 PM and 11:59 PM.
+- `isNight` – Checks if the time is between midnight and 5:59 AM.
 - `isToday` / `isTomorrow` / `isYesterday` – Quickly check the relation to the current day.
 - `isSameDay(DateTime other)` – Returns `true` if the date is the same calendar day as `other`.
 - `isInPast` / `isInFuture` – Check if the datetime is before or after now.
+
+#### 🔧 Utilities
+- `startOfDay()` – Returns the start of the day (midnight) for the datetime.
 
 #### 🔧 Manipulators
 - `addDays(int)` / `addMonths(int)` / `addYears(int)` – Add to the datetime.
@@ -117,7 +120,7 @@ true.not; // false
 
 #### 🧠 Time to String
 
-- `toFormat(String format)` – Fully custom format using `intl`.
+- `format(String format)` – Fully custom format using `intl`.
   > Popular date and time formats included in the [MayrDateTimeFormats] class.
   >
   > Currently includes:
@@ -131,7 +134,7 @@ true.not; // false
 - `toDayOrdinal()` – Get the day of the month with ordinal (e.g. `1st`, `22nd`, `31st`).
 - `toTimeAgoString()` – Human-readable "time ago" format (e.g. "2 days ago").
 - `toTimeString()` – Convert to time only (e.g. `14:35` or `14:35:59`).
-- `toShortDate()` – Returns a short formatted date string (e.g. `Apr 25, 2025`).
+- `toShortDate()` – Returns a short formatted date string (e.g. `Wed 15th Jan`).
 
 -------------------------------------------------------------------------------
 
