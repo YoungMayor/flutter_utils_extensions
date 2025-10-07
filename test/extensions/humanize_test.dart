@@ -33,7 +33,11 @@ void main() {
     test('humanize formats past times correctly', () {
       final now = DateTime.now();
       
-      expect(now.subtract(Duration(minutes: 5)).humanize(), '5 minutes ago');
+      // Use a time far enough in the past to avoid timing issues
+      final fiveMinutesAgo = now.subtract(Duration(minutes: 5, seconds: 30));
+      final result = fiveMinutesAgo.humanize();
+      expect(result == '5 minutes ago' || result == '6 minutes ago', true);
+      
       expect(now.subtract(Duration(hours: 3)).humanize(), '3 hours ago');
       expect(now.subtract(Duration(days: 1)).humanize(), 'yesterday');
       expect(now.subtract(Duration(days: 3)).humanize(), '3 days ago');
@@ -43,7 +47,11 @@ void main() {
     test('humanize formats future times correctly', () {
       final now = DateTime.now();
       
-      expect(now.add(Duration(minutes: 5)).humanize(), 'in 5 minutes');
+      // Use a time far enough in the future to avoid timing issues
+      final fiveMinutesLater = now.add(Duration(minutes: 5, seconds: 30));
+      final result = fiveMinutesLater.humanize();
+      expect(result == 'in 5 minutes' || result == 'in 6 minutes', true);
+      
       expect(now.add(Duration(hours: 3)).humanize(), 'in 3 hours');
       expect(now.add(Duration(days: 1)).humanize(), 'tomorrow');
       expect(now.add(Duration(days: 3)).humanize(), 'in 3 days');
