@@ -1,6 +1,6 @@
 name: mayr_extensions
 description: A comprehensive set of handy Dart and Flutter extensions to make your code cleaner, shorter, and more expressive.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/YoungMayor/flutter_utils_extensions
 repository: https://github.com/YoungMayor/flutter_utils_extensions
 issue_tracker: https://github.com/YoungMayor/flutter_utils_extensions/issues
